@@ -136,7 +136,7 @@ if (regist != null) {
     }
   });
   logBtn.addEventListener("click", function (eventInfo) {
-    if (localStorage.getItem("usres")) {
+    if (users.length !=0) {
       if (mailValid.test(logMail.value) && passValid.test(logPass.value)) {
         var check = false;
         for (let i = 0; i < users.length; i++) {
