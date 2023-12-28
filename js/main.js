@@ -152,7 +152,7 @@ if (regist != null) {
           clr();
           if (localURL == "//login-system") {
             location.replace(
-              "https://"+location.hostname+"/home.html"
+              "https://"+location.hostname+location.pathname+"home.html"
             );
           } else {
             location.replace(localURL + "/home.html");
@@ -193,7 +193,7 @@ if (regist != null) {
       localStorage.removeItem("currentUser");
       if (localURL == "//login-system") {
             location.replace(
-              "https://"+location.hostname+"/index.html")
+              "https://"+location.hostname+location.pathname)
       } else {
         location.replace(localURL + "/index.html");
       }
@@ -201,7 +201,7 @@ if (regist != null) {
   } else {
     if (localURL == "//login-system") {
             location.replace(
-              "https://"+location.hostname+"/index.html")
+              "https://"+location.hostname+location.pathname)
     } else {
       location.replace(localURL + "/index.html");
     }
