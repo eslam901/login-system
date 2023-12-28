@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" id="login">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Login Page</title>
+  </head>
+
+  <body>
+
+    <div class="layer position-absolute top-0 start-0 bottom-0 end-0">
+      <span class="loader"></span>
+    </div>
+
+    <section class="w-100 vh-100 d-flex justify-content-center align-items-center">
+      <div class="col-xl-4 col-sm-6 col-12  p-4 rounded-3 shadow-lg">
+        <label for="logMail">
+          Enter Your Email
+        </label>
+        <input id="logMail" type="email" class="form-control mb-4" placeholder="ex@example.com">
+        <label for="logPass">
+          Enter Your Password
+        </label>
+        <input id="logPass" type="password" class="form-control mb-4" placeholder="Please enter the password here">
+        <p id="alert" class="text-center">
+
+        </p>
+        <button id="logBtn" class="btn btn-outline-dark mx-auto d-block">
+          Login
+        </button>
+        <p class="w-100 text-end mt-4">
+          Do you have an account?
+          <a href="index.html">ClickHere</a>
+        </p>
+      </div>
+    </section>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>
