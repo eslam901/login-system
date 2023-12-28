@@ -150,9 +150,9 @@ if (regist != null) {
         }
         if (check == true) {
           clr();
-          if (localURL == "/") {
+          if (localURL == "//login-system") {
             location.replace(
-              "https://eslam901.github.io/login-system/home.html"
+              "https://"+location.hostname+"/home.html"
             );
           } else {
             location.replace(localURL + "/home.html");
@@ -191,15 +191,17 @@ if (regist != null) {
     )}</span>`;
     logOut.addEventListener("click", function (eventInfo) {
       localStorage.removeItem("currentUser");
-      if (localURL == "/") {
-        location.replace("https://eslam901.github.io/login-system/index.html");
+      if (localURL == "//login-system") {
+            location.replace(
+              "https://"+location.hostname+"/index.html")
       } else {
         location.replace(localURL + "/index.html");
       }
     });
   } else {
-    if (localURL == "/") {
-      location.replace("https://eslam901.github.io/login-system/index.html");
+    if (localURL == "//login-system") {
+            location.replace(
+              "https://"+location.hostname+"/index.html")
     } else {
       location.replace(localURL + "/index.html");
     }
