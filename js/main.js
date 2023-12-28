@@ -136,7 +136,7 @@ if (regist != null) {
     }
   });
   logBtn.addEventListener("click", function (eventInfo) {
-    if (users.length !=0) {
+    if (users.length != 0) {
       if (mailValid.test(logMail.value) && passValid.test(logPass.value)) {
         var check = false;
         for (let i = 0; i < users.length; i++) {
@@ -152,7 +152,7 @@ if (regist != null) {
           clr();
           if (localURL == "//login-system") {
             location.replace(
-              "https://"+location.hostname+location.pathname+"home.html"
+              "https://" + location.hostname + location.pathname + "home.html"
             );
           } else {
             location.replace(localURL + "/home.html");
@@ -183,25 +183,23 @@ if (regist != null) {
     }
   });
 } else if (home != null) {
-  if (localStorage.getItem("currentUser")) {
+  if (localStorage.getItem("currentUser") != null) {
     document.getElementById(
       "alert"
     ).innerHTML = `<span class="text-dark">Welcome ${localStorage.getItem(
       "currentUser"
     )}</span>`;
     logOut.addEventListener("click", function (eventInfo) {
-      localStorage.removeItem("currentUser");
       if (localURL == "//login-system") {
-            location.replace(
-              "https://"+location.hostname+location.pathname)
+        location.replace("https://" + location.hostname + "/login-system/");
       } else {
         location.replace(localURL + "/index.html");
       }
+      localStorage.removeItem("currentUser");
     });
   } else {
     if (localURL == "//login-system") {
-            location.replace(
-              "https://"+location.hostname+location.pathname)
+      location.replace("https://" + location.hostname + "/login-system/");
     } else {
       location.replace(localURL + "/index.html");
     }
