@@ -152,7 +152,7 @@ if (regist != null) {
           clr();
           if (localURL == "/") {
             location.replace(
-              "https://" + location.hostname + "/login-system/home.html"
+              "https://eslam901.github.io/login-system/home.html"
             );
           } else {
             location.replace(localURL + "/home.html");
@@ -197,18 +197,14 @@ if (regist != null) {
     logOut.addEventListener("click", function (eventInfo) {
       localStorage.removeItem("currentUser");
       if (localURL == "/") {
-        location.replace(
-          "https://" + location.hostname + "/login-system/index.html"
-        );
+        location.replace("https://eslam901.github.io/login-system/index.html");
       } else {
         location.replace(localURL + "/index.html");
       }
     });
   } else {
     if (localURL == "/") {
-      location.replace(
-        "https://" + location.hostname + "/login-system/index.html"
-      );
+      location.replace("https://eslam901.github.io/login-system/index.html");
     } else {
       location.replace(localURL + "/index.html");
     }
