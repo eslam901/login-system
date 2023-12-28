@@ -157,11 +157,6 @@ if (regist != null) {
           } else {
             location.replace(localURL + "/home.html");
           }
-          document.getElementById(
-            "alert"
-          ).innerHTML = `<span class="text-success">Success ${localStorage.getItem(
-            "currentUser"
-          )}</span>`;
         } else if (check == false) {
           document.getElementById("alert").innerHTML =
             '<span class="text-danger">This account does not exist</span>';
