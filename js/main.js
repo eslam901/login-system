@@ -120,86 +120,102 @@ if (regist != null) {
     }
   });
 } else if (login != null) {
-  function clr() {
-    logMail.value = "";
-    logPass.value = "";
-    logPass.classList.remove("is-valid");
-    logMail.classList.remove("is-valid");
-  }
-  logMail.addEventListener("input", function (eventInfo) {
-    if (mailValid.test(logMail.value)) {
-      logMail.classList.add("is-valid");
-      logMail.classList.remove("is-invalid");
-    } else {
-      logMail.classList.remove("is-valid");
-      logMail.classList.add("is-invalid");
-    }
-  });
-  logPass.addEventListener("input", function (eventInfo) {
-    if (passValid.test(logPass.value)) {
-      logPass.classList.add("is-valid");
-      logPass.classList.remove("is-invalid");
-    } else {
-      logPass.classList.remove("is-valid");
-      logPass.classList.add("is-invalid");
-    }
-  });
-  goReg.addEventListener("click", function (eventInfo) {
+  if (localStorage.getItem("currentUser")!=null) {
     if (localURL == "//login-system") {
       location.replace(
-        "https://" + location.hostname + location.pathname + "registration.html"
+        "https://" + location.hostname + location.pathname + "home.html"
       );
     } else {
-      location.replace(localURL + "/registration.html");
+      location.replace(localURL + "/home.html");
     }
-  });
-  logBtn.addEventListener("click", function (eventInfo) {
-    if (users.length != 0) {
-      if (mailValid.test(logMail.value) && passValid.test(logPass.value)) {
-        var check = false;
-        for (let i = 0; i < users.length; i++) {
-          const x = users[i].mail.toLowerCase();
-          const y = users[i].Pass;
-          if (x == logMail.value.toLowerCase() && y == logPass.value) {
-            localStorage.setItem("currentUser", JSON.stringify(users[i].name));
-            check = true;
-            break;
-          }
-        }
-        if (check == true) {
-          clr();
-          if (localURL == "//login-system") {
-            location.replace(
-              "https://" + location.hostname + location.pathname + "home.html"
-            );
-          } else {
-            location.replace(localURL + "/home.html");
-          }
-        } else if (check == false) {
-          document.getElementById("alert").innerHTML =
-            '<span class="text-danger">This account does not exist</span>';
-          clr();
-        }
-      } else if (
-        userName.value == "" ||
-        regMail.value == "" ||
-        regPass.value == ""
-      ) {
-        document.getElementById("alert").innerHTML =
-          '<span class="text-danger">There are empty fields</span>';
-      } else if (mailValid.test(regMail.value) == false) {
-        document.getElementById("alert").innerHTML =
-          '<span class="text-danger">Email is not valid</span>';
-      } else if (passValid.test(regPass.value) == false) {
-        document.getElementById("alert").innerHTML =
-          '<span class="text-danger">The password should contain at least 6 numbers and letters</span>';
+  } else {
+    function clr() {
+      logMail.value = "";
+      logPass.value = "";
+      logPass.classList.remove("is-valid");
+      logMail.classList.remove("is-valid");
+    }
+    logMail.addEventListener("input", function (eventInfo) {
+      if (mailValid.test(logMail.value)) {
+        logMail.classList.add("is-valid");
+        logMail.classList.remove("is-invalid");
+      } else {
+        logMail.classList.remove("is-valid");
+        logMail.classList.add("is-invalid");
       }
-    } else {
-      document.getElementById("alert").innerHTML =
-        '<span class="text-danger">This account does not exist</span>';
-      clr();
-    }
-  });
+    });
+    logPass.addEventListener("input", function (eventInfo) {
+      if (passValid.test(logPass.value)) {
+        logPass.classList.add("is-valid");
+        logPass.classList.remove("is-invalid");
+      } else {
+        logPass.classList.remove("is-valid");
+        logPass.classList.add("is-invalid");
+      }
+    });
+    goReg.addEventListener("click", function (eventInfo) {
+      if (localURL == "//login-system") {
+        location.replace(
+          "https://" +
+            location.hostname +
+            location.pathname +
+            "registration.html"
+        );
+      } else {
+        location.replace(localURL + "/registration.html");
+      }
+    });
+    logBtn.addEventListener("click", function (eventInfo) {
+      if (users.length != 0) {
+        if (mailValid.test(logMail.value) && passValid.test(logPass.value)) {
+          var check = false;
+          for (let i = 0; i < users.length; i++) {
+            const x = users[i].mail.toLowerCase();
+            const y = users[i].Pass;
+            if (x == logMail.value.toLowerCase() && y == logPass.value) {
+              localStorage.setItem(
+                "currentUser",
+                JSON.stringify(users[i].name)
+              );
+              check = true;
+              break;
+            }
+          }
+          if (check == true) {
+            clr();
+            if (localURL == "//login-system") {
+              location.replace(
+                "https://" + location.hostname + location.pathname + "home.html"
+              );
+            } else {
+              location.replace(localURL + "/home.html");
+            }
+          } else if (check == false) {
+            document.getElementById("alert").innerHTML =
+              '<span class="text-danger">This account does not exist</span>';
+            clr();
+          }
+        } else if (
+          userName.value == "" ||
+          regMail.value == "" ||
+          regPass.value == ""
+        ) {
+          document.getElementById("alert").innerHTML =
+            '<span class="text-danger">There are empty fields</span>';
+        } else if (mailValid.test(regMail.value) == false) {
+          document.getElementById("alert").innerHTML =
+            '<span class="text-danger">Email is not valid</span>';
+        } else if (passValid.test(regPass.value) == false) {
+          document.getElementById("alert").innerHTML =
+            '<span class="text-danger">The password should contain at least 6 numbers and letters</span>';
+        }
+      } else {
+        document.getElementById("alert").innerHTML =
+          '<span class="text-danger">This account does not exist</span>';
+        clr();
+      }
+    });
+  }
 } else if (home != null) {
   if (localStorage.getItem("currentUser") != null) {
     document.getElementById(
