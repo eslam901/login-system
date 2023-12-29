@@ -1,20 +1,22 @@
 var login = document.getElementById("login"),
   logMail = document.getElementById("logMail"),
   logPass = document.getElementById("logPass"),
-  logBtn = document.getElementById("logBtn");
+  logBtn = document.getElementById("logBtn"),
+  goReg = document.getElementById('goReg');
 
 var regist = document.getElementById("regist"),
   userName = document.getElementById("userName"),
   regMail = document.getElementById("regMail"),
   regPass = document.getElementById("regPass"),
-  regBtn = document.getElementById("regBtn");
+  regBtn = document.getElementById("regBtn"),
+  goLog = document.getElementById("goLog");
 
 var home = document.getElementById("home"),
   logOut = document.getElementById("logOut");
 
 var nameValid = /^\w{3,}/,
   mailValid = /^(?!\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-  passValid = /[\w,A-z]{5,}/;
+  passValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
 var pathArray = location.pathname.split("/"),
   localURL = "";
@@ -64,6 +66,13 @@ if (regist != null) {
     } else {
       regPass.classList.remove("is-valid");
       regPass.classList.add("is-invalid");
+    }
+  });
+  goLog.addEventListener("click", function (eventInfo) {
+    if (localURL == "//login-system") {
+      location.replace("https://" + location.hostname + "/login-system/");
+    } else {
+      location.replace(localURL + "/index.html");
     }
   });
   regBtn.addEventListener("click", function (eventInfo) {
@@ -133,6 +142,15 @@ if (regist != null) {
     } else {
       logPass.classList.remove("is-valid");
       logPass.classList.add("is-invalid");
+    }
+  });
+  goReg.addEventListener("click", function (eventInfo) {
+    if (localURL == "//login-system") {
+      location.replace(
+        "https://" + location.hostname + location.pathname + "registration.html"
+      );
+    } else {
+      location.replace(localURL + "/registration.html");
     }
   });
   logBtn.addEventListener("click", function (eventInfo) {

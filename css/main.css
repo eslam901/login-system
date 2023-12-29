@@ -94,6 +94,10 @@ a {
   text-decoration: none;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 /* login Page */
 
 #login {
